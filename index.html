@@ -2,20 +2,20 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <!-- ป้องกันการซูมและการเลื่อนหน้าจอที่ไม่ได้ตั้งใจ -->
+    <!-- ป้องกันการซูมและรองรับหน้าจอแหว่ง (Notch) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     
     <title>Money HP</title>
     
-    <!-- ไอคอนสำหรับ Tab Browser -->
+    <!-- ไอคอน -->
     <link rel="icon" type="image/jpeg" href="assets/icon.jpg"> 
 
-    <!-- ตั้งค่าสำหรับ iOS Web App (ทำให้เหมือนแอปจริง) -->
+    <!-- ตั้งค่า iOS Web App -->
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- เปลี่ยนสี Status Bar เป็นสีดำเพื่อให้กลืนกับติ่งหน้าจอ -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Money HP">
     
-    <!-- ไอคอนแอปบนหน้าจอโฮม iPhone -->
     <link rel="apple-touch-icon" href="assets/icon.jpg"> 
 
     <style>
@@ -26,14 +26,24 @@
             height: 100%; 
             overflow: hidden; 
             background-color: #F8FAFC; 
-            /* ป้องกันการเด้งของหน้าจอใน iOS */
+            /* สีพื้นหลัง Status Bar (ส่วนบนสุด) */
+            background-color: #111827; 
             -webkit-overflow-scrolling: touch;
         }
+        
         iframe { 
             width: 100%; 
             height: 100%; 
             border: none; 
-            display: block; 
+            display: block;
+            
+            /* --- หัวใจสำคัญ: เว้นระยะขอบบนสำหรับติ่งหน้าจอ --- */
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
+            box-sizing: border-box; /* สำคัญ: รวม padding ในความสูง 100% */
+            
+            /* สีพื้นหลังของ iframe (ส่วนแอป) */
+            background-color: #F8FAFC; 
         }
     </style>
 </head>
