@@ -2,53 +2,46 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <!-- Viewport Fit Cover: หัวใจสำคัญ ให้แอปขยายเต็มจอลอดใต้แถบสถานะ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     
     <title>Money HP</title>
     
-    <!-- ไอคอน (ตรวจสอบ path ให้ตรงกับใน GitHub ของคุณ) -->
     <link rel="icon" type="image/jpeg" href="assets/icon.jpg"> 
     <link rel="apple-touch-icon" href="assets/icon.jpg"> 
 
-    <!-- ตั้งค่า iOS PWA -->
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <!-- ใช้ black-translucent เพื่อให้เนื้อหาแอปดันขึ้นไปสุดขอบจอด้านบน -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Money HP">
 
     <style>
-        /* รีเซ็ตค่าพื้นฐาน */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body, html { 
             width: 100%; 
             height: 100%; 
-            overflow: hidden; /* ป้องกันการเลื่อนของตัวกรอบนอก */
-            background-color: #F8FAFC; /* สีเดียวกับพื้นหลังแอป */
+            overflow: hidden; 
+            background-color: #F8FAFC; 
             -webkit-overflow-scrolling: touch;
         }
         
         iframe { 
-            position: fixed; /* ใช้ fixed เพื่อยึดติดขอบจอ */
+            position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0; /* ยึดขอบล่างให้ชิด */
             width: 100%; 
-            height: 100%; 
+            height: 100dvh; /* ใช้หน่วยนี้เพื่อให้เต็มจอจริงๆ บนมือถือ */
             border: none; 
             display: block;
-            
-            /* --- สำคัญสำหรับ V18.4+ --- */
-            /* ไม่กำหนด padding ใดๆ ที่นี่ ให้ตัวแอปจัดการ safe area เอง */
-            padding: 0; 
+            padding: 0;
             margin: 0;
+            
+            /* อนุญาตให้ตัวแอปเข้าถึงเซ็นเซอร์และการแสดงผลเต็มรูปแบบ */
+            allow="fullscreen; geolocation; microphone; camera"
         }
     </style>
 </head>
 <body>
-    <!-- ลิงก์ Web App ของคุณ -->
+    <!-- เปลี่ยน URL เป็น Web App ของคุณ -->
     <iframe src="https://script.google.com/macros/s/AKfycbwRlvdL_Io_-svVurVOuHK2pY9Ex_J-BGiB5hJnPvS8-8oE58Wfazsmnlk01RY4UbGC/exec"></iframe>
 </body>
 </html>
