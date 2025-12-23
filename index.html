@@ -2,12 +2,14 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
+    <!-- Viewport Fit Cover คือหัวใจสำคัญของการทำแอปเต็มจอ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     
     <title>Money HP</title>
     
     <link rel="icon" type="image/jpeg" href="assets/icon.jpg"> 
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- ใช้ black-translucent เพื่อให้เนื้อหายืดไปสุดขอบจอใต้ Status bar -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Money HP">
     <link rel="apple-touch-icon" href="assets/icon.jpg"> 
@@ -19,24 +21,16 @@
             width: 100%; 
             height: 100%; 
             overflow: hidden; 
-            /* เปลี่ยนพื้นหลังหลักเป็นสีเดียวกับเนื้อหาแอป (สีเทา) แก้ปัญหาขอบม่วงโผล่ด้านล่าง */
-            background-color: #F8FAFC; 
             -webkit-overflow-scrolling: touch;
+            
+            /* --- เทคนิคลับ: ไล่สีพื้นหลัง --- */
+            /* ด้านบน 100px แรกเป็นสีม่วง (#4f46e5) เพื่อรองรับ Notch */
+            /* ส่วนที่เหลือด้านล่างเป็นสีเทา (#F8FAFC) เพื่อให้เนียนไปกับแอป */
+            background: linear-gradient(to bottom, #4f46e5 0%, #4f46e5 100px, #F8FAFC 100px, #F8FAFC 100%);
         }
         
-        /* สร้างแถบสีม่วงจำลอง สำหรับถมส่วน Notch ด้านบนโดยเฉพาะ */
-        #notch-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: env(safe-area-inset-top); /* ความสูงเท่ากับติ่งหน้าจอ */
-            background-color: #4f46e5; /* สีม่วงเดียวกับ Header */
-            z-index: 9999;
-        }
-
         iframe { 
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%; 
@@ -44,20 +38,18 @@
             border: none; 
             display: block;
             
-            /* ดันเนื้อหาแอปหลบแถบสีม่วงที่เราสร้างไว้ */
+            /* เว้นระยะขอบบน ให้เนื้อหาแอปเริ่มใต้ติ่งหน้าจอ */
             padding-top: env(safe-area-inset-top);
             
-            /* ด้านล่างปล่อยปกติ ให้แอปจัดการเอง */
+            /* ด้านล่างชิดขอบ (0px) เพราะในแอปเราเว้นระยะเมนูไว้แล้ว */
             padding-bottom: 0;
             
-            background-color: #F8FAFC; 
+            /* พื้นหลังใส เพื่อให้เห็นสีม่วง/เทา จาก Body ด้านหลัง */
+            background-color: transparent; 
         }
     </style>
 </head>
 <body>
-    <!-- แถบสีม่วงสำหรับ Notch -->
-    <div id="notch-bar"></div>
-    
     <!-- เนื้อหาแอป -->
     <iframe src="https://script.google.com/macros/s/AKfycbwRlvdL_Io_-svVurVOuHK2pY9Ex_J-BGiB5hJnPvS8-8oE58Wfazsmnlk01RY4UbGC/exec"></iframe>
 </body>
