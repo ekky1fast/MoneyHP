@@ -2,47 +2,51 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
+    <!-- Viewport Fit Cover: หัวใจสำคัญ ให้แอปขยายเต็มจอลอดใต้แถบสถานะ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    
     <title>Money HP</title>
     
+    <!-- ไอคอน (ตรวจสอบ path ให้ตรงกับใน GitHub ของคุณ) -->
     <link rel="icon" type="image/jpeg" href="assets/icon.jpg"> 
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Money HP">
     <link rel="apple-touch-icon" href="assets/icon.jpg"> 
 
+    <!-- ตั้งค่า iOS PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- ใช้ black-translucent เพื่อให้เนื้อหาแอปดันขึ้นไปสุดขอบจอด้านบน -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Money HP">
+
     <style>
+        /* รีเซ็ตค่าพื้นฐาน */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body, html { 
             width: 100%; 
             height: 100%; 
-            overflow: hidden; 
-            /* 1. ถมสีพื้นหลังเป็นสีม่วง (สีเดียวกับ Header) เพื่อรองรับส่วนติ่งหน้าจอ */
-            background-color: #4f46e5;
+            overflow: hidden; /* ป้องกันการเลื่อนของตัวกรอบนอก */
+            background-color: #F8FAFC; /* สีเดียวกับพื้นหลังแอป */
             -webkit-overflow-scrolling: touch;
         }
         
         iframe { 
             position: absolute;
+            top: 0;
             left: 0;
             width: 100%; 
+            height: 100%; 
             border: none; 
             display: block;
             
-            /* 2. ดัน iframe ลงมาเริ่มใต้ติ่งหน้าจอ (ไม่ให้ Header โดนบัง) */
-            top: env(safe-area-inset-top);
-            
-            /* 3. คำนวณความสูงให้พอดีเป๊ะ! (ความสูงเต็มจอ - พื้นที่ติ่งที่เว้นไว้) */
-            /* ทำให้ด้านล่างชิดขอบจอพอดี ไม่ลอย ไม่เหลือขอบ */
-            height: calc(100% - env(safe-area-inset-top));
-            
-            /* สีพื้นหลังแอป (สีเทา) */
-            background-color: #F8FAFC; 
+            /* --- สำคัญสำหรับ V18.4 --- */
+            /* ไม่ต้องกำหนด padding-top/bottom ที่นี่แล้ว */
+            /* เพราะใน Code.gs (V18.4) เราเขียน CSS ให้จัดการ env(safe-area) เองจากภายใน */
+            /* ทำให้การแสดงผลแม่นยำที่สุดตามรุ่นมือถือ */
         }
     </style>
 </head>
 <body>
+    <!-- ลิงก์ Web App ของคุณ -->
     <iframe src="https://script.google.com/macros/s/AKfycbwRlvdL_Io_-svVurVOuHK2pY9Ex_J-BGiB5hJnPvS8-8oE58Wfazsmnlk01RY4UbGC/exec"></iframe>
 </body>
 </html>
