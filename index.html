@@ -2,34 +2,31 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <!-- Viewport Fit Cover คือหัวใจสำคัญของการทำแอปเต็มจอ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     
     <title>Money HP</title>
     
     <link rel="icon" type="image/jpeg" href="assets/icon.jpg"> 
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <!-- ใช้ black-translucent เพื่อให้เนื้อหายืดไปสุดขอบจอใต้ Status bar -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- ใช้ default เพื่อให้ Status Bar เป็นสีดำ/ขาวตามปกติ ไม่ทับซ้อน -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Money HP">
     <link rel="apple-touch-icon" href="assets/icon.jpg"> 
 
     <style>
+        /* ล้างค่าทุกอย่าง */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body, html { 
             width: 100%; 
             height: 100%; 
             overflow: hidden; 
+            background-color: #F8FAFC; /* สีเทาเดียวกับแอป */
             -webkit-overflow-scrolling: touch;
-            
-            /* --- เทคนิคลับ: ไล่สีพื้นหลัง --- */
-            /* ด้านบน 100px แรกเป็นสีม่วง (#4f46e5) เพื่อรองรับ Notch */
-            /* ส่วนที่เหลือด้านล่างเป็นสีเทา (#F8FAFC) เพื่อให้เนียนไปกับแอป */
-            background: linear-gradient(to bottom, #4f46e5 0%, #4f46e5 100px, #F8FAFC 100px, #F8FAFC 100%);
         }
         
         iframe { 
+            /* ยึดเต็มหน้าจอแบบไม่มีเงื่อนไข */
             position: absolute;
             top: 0;
             left: 0;
@@ -38,19 +35,15 @@
             border: none; 
             display: block;
             
-            /* เว้นระยะขอบบน ให้เนื้อหาแอปเริ่มใต้ติ่งหน้าจอ */
-            padding-top: env(safe-area-inset-top);
+            /* --- สำคัญ: เอา padding ออกให้หมด! --- */
+            /* ปล่อยให้ตัวแอปข้างในจัดการเรื่อง Notch และ Home Bar เอง */
+            padding: 0; 
             
-            /* ด้านล่างชิดขอบ (0px) เพราะในแอปเราเว้นระยะเมนูไว้แล้ว */
-            padding-bottom: 0;
-            
-            /* พื้นหลังใส เพื่อให้เห็นสีม่วง/เทา จาก Body ด้านหลัง */
-            background-color: transparent; 
+            background-color: #F8FAFC; 
         }
     </style>
 </head>
 <body>
-    <!-- เนื้อหาแอป -->
     <iframe src="https://script.google.com/macros/s/AKfycbwRlvdL_Io_-svVurVOuHK2pY9Ex_J-BGiB5hJnPvS8-8oE58Wfazsmnlk01RY4UbGC/exec"></iframe>
 </body>
 </html>
